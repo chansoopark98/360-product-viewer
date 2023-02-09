@@ -1,0 +1,18 @@
+/* container */
+:global(.product-viewer) {
+  overflow: hidden;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+
+  &__image {
+    max-width: 100%;
+    height: auto;
+  }
+
+  &--js-press-active {
+    cursor: grabbing;
+  }
+}
