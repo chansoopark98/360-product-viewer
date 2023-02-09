@@ -1,11 +1,18 @@
-import 'scss/product-viewer.scss'
+console.log('zz');
+// import * as loadImage from "./loadImage.js";
+// import "./loadImage.js";
+// import path from 'path'
+// import leftPad from 'left-pad'
+import '../events/events.js'
 
-import path from 'path'
-import leftPad from 'left-pad'
-import { EventEmitter } from 'events'
-import BezierEasing from 'bezier-easing'
 
-import loadImage from 'util/loadImage'
+// evem.EventEmitter
+
+
+
+
+
+// import BezierEasing from 'bezier-easing'
 
 /**
  * @class ProductViewer
@@ -52,7 +59,7 @@ class ProductViewer extends EventEmitter {
      */
     constructor({ element, imagePath, filePrefix = 'img', fileExtension = '.jpg', numberOfImages = 36 }) {
         super()
-
+        console.log(imagePath);
         // assign props
         Object.assign(this, { imagePath, filePrefix, fileExtension, numberOfImages })
         this.$element = element
@@ -243,3 +250,4 @@ class ProductViewer extends EventEmitter {
 window.ProductViewer = ProductViewer
 
 export default ProductViewer
+export { ProductViewer}
