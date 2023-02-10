@@ -16,16 +16,17 @@ app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
 app.use(cors());
-app.use('/events', express.static(__dirname + '/events'));
+
+app.use('/styles', express.static(__dirname + '/styles'));
 app.use('/modules', express.static(__dirname + '/modules'));
-app.use('/images', express.static(__dirname + '/images'));
+app.use('/img', express.static(__dirname + '/img'));
 // app.use('/js', express.static(__dirname + '/js'));
 // app.use('/sample_models', express.static(__dirname + '/sample_models'));
 let server_port = 5555;
 let server = require('https').createServer(options, app);
 
 app.get('/', (req, res) => {
-    res.render(__dirname + "/index.html");    // index.ejs을 사용자에게 전달
+    res.render(__dirname + "/testProduct.html");    // index.ejs을 사용자에게 전달
     console.log(__dirname);
 })
 
