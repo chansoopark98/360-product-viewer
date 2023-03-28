@@ -1,0 +1,44 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360-degree Image Viewer</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .viewer {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            border: 1px solid #000;
+            cursor: grab;
+        }
+
+        .viewer img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+      </style>
+    <!-- <script type="module" src="./modules/ThreejsVIewer.js"></script> -->
+</head>
+<body>
+    
+    <div id="viewer">
+        <img src="./img/camera3/1.jpg" alt="360 degree view" id="image">
+      </div>
+    <script type="module" src="./modules/vanila_viewer_test.js"></script>
+</body>
+</html>

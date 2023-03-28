@@ -11,7 +11,7 @@ web/img/
 *.so
 
 # Distribution / packaging
-.Python
+.Python-
 build/
 develop-eggs/
 dist/
