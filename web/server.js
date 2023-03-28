@@ -26,7 +26,7 @@ let server_port = 5555;
 let server = require('https').createServer(options, app);
 
 app.get('/', (req, res) => {
-    res.render(__dirname + "/test_index.html");    // index.ejs을 사용자에게 전달
+    res.render(__dirname + "/video_extract.html");    // index.ejs을 사용자에게 전달
     console.log(__dirname);
 })
 

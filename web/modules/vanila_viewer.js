@@ -17,34 +17,33 @@ function clamp(value, min, max) {
 }
 
 function handleStart(e) {
-  e.preventDefault();
-  const startX = e.clientX || e.touches[0].clientX;
-  const startY = e.clientY || e.touches[0].clientY;
-  const initialImageIndex = currentImageIndex;
-  const initialCameraIndex = currentCameraIndex;
+    e.preventDefault();
+    const startX = e.clientX || e.touches[0].clientX;
+    const startY = e.clientY || e.touches[0].clientY;
+    const initialImageIndex = currentImageIndex;
+    const initialCameraIndex = currentCameraIndex;
 
-  function handleMove(e) {
-    const deltaX = (e.clientX || e.touches[0].clientX) - startX;
-    const deltaY = (e.clientY || e.touches[0].clientY) - startY;
+    function handleMove(e) {
+        const deltaX = (e.clientX || e.touches[0].clientX) - startX;
+        const deltaY = (e.clientY || e.touches[0].clientY) - startY;
 
-    currentImageIndex = clamp(Math.round(initialImageIndex + (deltaX / viewer.clientWidth) * totalImages), 1, totalImages);
-    currentCameraIndex = clamp(Math.round(initialCameraIndex - (deltaY / viewer.clientHeight) * (cameras.length - 1)), 0, cameras.length - 1);
-    
-    updateImage();
-  }
+        currentImageIndex = clamp(Math.round(initialImageIndex + (deltaX / viewer.clientWidth) * totalImages), 1, totalImages);
+        currentCameraIndex = clamp(Math.round(initialCameraIndex - (deltaY / viewer.clientHeight) * (cameras.length - 1)), 0, cameras.length - 1);
 
-  function handleEnd() {
-    viewer.removeEventListener("mousemove", handleMove);
-    viewer.removeEventListener("touchmove", handleMove);
-    viewer.removeEventListener("mouseup", handleEnd);
-    viewer.removeEventListener("touchend", handleEnd);
-  }
+        updateImage();
+    }
 
-  viewer.addEventListener("mousemove", handleMove);
-  viewer.addEventListener("touchmove", handleMove);
-  viewer.addEventListener("mouseup", handleEnd);
-  viewer.addEventListener("touchend", handleEnd);
+    function handleEnd() {
+        viewer.removeEventListener("mousemove", handleMove);
+        viewer.removeEventListener("touchmove", handleMove);
+        viewer.removeEventListener("mouseup", handleEnd);
+        viewer.removeEventListener("touchend", handleEnd);
+    }
+
+    viewer.addEventListener("mousemove", handleMove);
+    viewer.addEventListener("touchmove", handleMove);
+    viewer.addEventListener("mouseup", handleEnd);
+    viewer.addEventListener("touchend", handleEnd);
 }
-
 viewer.addEventListener("mousedown", handleStart);
 viewer.addEventListener("touchstart", handleStart);
