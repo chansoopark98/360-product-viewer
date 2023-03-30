@@ -1,3 +1,4 @@
+// Test
 const viewer = document.getElementById("viewer");
 const currentImage = document.getElementById("current-image");
 
