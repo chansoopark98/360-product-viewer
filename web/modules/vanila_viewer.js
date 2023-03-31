@@ -1,3 +1,10 @@
+import { VideoFrameExtractor } from "./video_extract.js";
+
+const extractor1 = new VideoFrameExtractor('video-input-1');
+const extractor2 = new VideoFrameExtractor('video-input-2');
+const extractor3 = new VideoFrameExtractor('video-input-3');
+const extractor4 = new VideoFrameExtractor('video-input-4');
+
 // Test
 const viewer = document.getElementById("viewer");
 const currentImage = document.getElementById("current-image");
@@ -18,6 +25,7 @@ function clamp(value, min, max) {
 }
 
 function handleStart(e) {
+    console.log(extractor1.frames)
     e.preventDefault();
     const startX = e.clientX || e.touches[0].clientX;
     const startY = e.clientY || e.touches[0].clientY;

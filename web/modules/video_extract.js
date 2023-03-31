@@ -54,9 +54,4 @@ class VideoFrameExtractor {
     }
 }
 
-const extractor1 = new VideoFrameExtractor('video-input-1');
-const extractor2 = new VideoFrameExtractor('video-input-2');
-const extractor3 = new VideoFrameExtractor('video-input-3');
-const extractor4 = new VideoFrameExtractor('video-input-4');
-
 export { VideoFrameExtractor } 
