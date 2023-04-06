@@ -6,6 +6,7 @@ const extractor3 = new VideoFrameExtractor('video-input-3');
 const extractor4 = new VideoFrameExtractor('video-input-4');
 const videoFrameList = [extractor1.frames, extractor2.frames, extractor3.frames, extractor4.frames];
 
+
 const viewer = document.getElementById("viewer");
 const currentImage = document.getElementById("current-image");
 
@@ -80,7 +81,7 @@ function testFunc(){
 
             currentImageIndex = Math.round(initialImageIndex + (deltaX / viewer.clientWidth) * totalImages);
             currentImageIndex = ((currentImageIndex - 1) % totalImages + totalImages) % totalImages + 1; // Wrap around index
-            
+
             currentCameraIndex = clamp(Math.round(initialCameraIndex - (deltaY / viewer.clientHeight) * (cameras.length - 1)), 0, cameras.length - 1);
             console.log(currentCameraIndex, currentImageIndex);
             updateImage();
