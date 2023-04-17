@@ -1,9 +1,8 @@
 let express = require('express');
 // const ejs = require('ejs');
-var module = require('module');
+// let module = require('module');
 let app = express();
 let cors = require('cors');
-''
 
 let fs = require('fs');
 let options = {

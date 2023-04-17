@@ -1,45 +1,32 @@
 import { VideoFrameExtractor } from "./video_extract.js";
 
-const extractor1 = new VideoFrameExtractor('video-input-1');
-const extractor2 = new VideoFrameExtractor('video-input-2');
-const extractor3 = new VideoFrameExtractor('video-input-3');
-const extractor4 = new VideoFrameExtractor('video-input-4');
-const videoFrameList = [extractor1.frames, extractor2.frames, extractor3.frames, extractor4.frames];
+const videoNum = 4;
+
+const videoFrameList = [];
+for (let i = 1; i <= videoNum; i++) {
+  const extractor = new VideoFrameExtractor(`video-input-${i}`);
+  videoFrameList.push(extractor.frames);
+}
 
 
 const viewer = document.getElementById("viewer");
-const currentImage = document.getElementById("current-image");
+const currentImage = document.getElementById("current-image"); 
 
-function videoNullCheck(){
+function videoNullCheck() {
   let nullVideoIndex = [];
 
-//   if (videoFrameList[0].length == 0){
-//     console.log('Video1 list length is 0');
-//     alert('Video 1번이 로드되지 않았습니다.');
-//     nullVideoIndex.push(1)
-//   }
-//   if (videoFrameList[1].length == 0){
-//     console.log('Video2 list length is 0')
-//     alert('Video 2번이 로드되지 않았습니다.');
-//     nullVideoIndex.push(2)
-//   }
-//   if (videoFrameList[2].length == 0){
-//     console.log('Video3 list length is 0')
-//     alert('Video 3번이 로드되지 않았습니다.');
-//     nullVideoIndex.push(3)
-//   }
-//   if (videoFrameList[3].length == 0){
-//     console.log('Video4 list length is 0')
-//     alert('Video 4번이 로드되지 않았습니다.');
-//     nullVideoIndex.push(4)
-//   }
-//   console.log(nullVideoIndex);
+  for (let i = 0; i < videoNum; i++) {
+    if (videoFrameList[i].length == 0) {
+      console.log(`Video${i + 1} list length is 0`);
+      alert(`Video ${i + 1}번이 로드되지 않았습니다.`);
+      nullVideoIndex.push(i + 1);
+    }
+  }
 
-  if (nullVideoIndex.length == 0){
-    testFunc()
+  if (nullVideoIndex.length == 0) {
+    testFunc();
     console.log('start testFunc');
   }
-  
 }
 
 const videoNullCheckButton = document.getElementById("checkbutton");
